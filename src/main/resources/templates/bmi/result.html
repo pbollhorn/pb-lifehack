@@ -20,15 +20,12 @@
 
     <h1>BMI Calculator</h1>
 
-    <form method="post">
-        <label for="height">Height [cm]:</label>
-        <input id="height" name="height" type="number" required/><br/>
+    <p>Your height is <span th:text="${height}"></span> cm</p>
+    <p>Your weight is <span th:text="${weight}"></span> kg</p>
+    <p>Your BMI is <span th:text="${bmi}"></span></p>
+    <p>Your BMI is classified as <span th:text="${bmiClassification}"></span></p>
 
-        <label for="weight">Weight [kg]:</label>
-        <input id="weight" name="weight" type="number" required/><br/>
-
-        <button type="submit" formaction="bmi/calculate">Calculate</button>
-    </form>
+    <p><a href="/bmi">Make New Calculation</a></p>
 
 </div>
 </body>
