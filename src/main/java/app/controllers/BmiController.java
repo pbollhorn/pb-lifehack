@@ -9,7 +9,7 @@ public class BmiController {
 
     public static void addRoutes(Javalin app, ConnectionPool connectionPool) {
         app.get("/bmi", ctx -> index(ctx, connectionPool));
-        app.post("/bmi/calculate", ctx -> calculate(ctx, connectionPool));
+        app.post("/bmi", ctx -> calculate(ctx, connectionPool));
     }
 
     private static void index(Context ctx, ConnectionPool connectionPool) {
@@ -31,7 +31,7 @@ public class BmiController {
         ctx.attribute("weight", weight);
         ctx.attribute("bmi", bmi);
         ctx.attribute("bmiClassification", bmiClassification);
-        ctx.render("bmi/result.html");
+        ctx.render("/bmi/index.html");
     }
 
 

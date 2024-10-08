@@ -22,13 +22,15 @@
 
     <form method="post">
         <label for="height">Height [cm]:</label>
-        <input id="height" name="height" type="number" required/><br/>
+        <input id="height" name="height" type="number" step="0.1" required th:value="${height != null} ? ${height}"/><br/>
 
         <label for="weight">Weight [kg]:</label>
-        <input id="weight" name="weight" type="number" required/><br/>
+        <input id="weight" name="weight" type="number" step="0.1" required th:value="${weight != null} ? ${weight}"/><br/>
 
-        <button type="submit" formaction="result.html" th:formaction="@{/bmi/calculate}">Calculate</button>
+        <button type="submit" formaction="index.html" th:formaction="@{/bmi/}">Calculate</button>
     </form>
+    <p th:if="${bmi != null}">Your BMI is <span th:text="${bmi}"></span></p>
+    <p th:if="${bmiClassification != null}">Your BMI is classified as <span th:text="${bmiClassification}"></span></p>
 
 </div>
 </body>
