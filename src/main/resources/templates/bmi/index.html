@@ -20,12 +20,14 @@
 
     <h1>BMI Calculator</h1>
 
+    <p>Hello <span th:text="${session.currentUser != null} ? ${session.currentUser.userName} : '(Guest)'"></span>, here you can calculate your BMI.</p>
+
     <form method="post">
         <label for="height">Height [cm]:</label>
-        <input id="height" name="height" type="number" step="0.1" required th:value="${height != null} ? ${height}"/><br/>
+        <input id="height" name="height" type="number" step="0.1" min="0.1" max="10000" required th:value="${height != null} ? ${height}"/><br/>
 
         <label for="weight">Weight [kg]:</label>
-        <input id="weight" name="weight" type="number" step="0.1" required th:value="${weight != null} ? ${weight}"/><br/>
+        <input id="weight" name="weight" type="number" step="0.1" min="0.1" max="10000" required th:value="${weight != null} ? ${weight}"/><br/>
 
         <button type="submit" formaction="index.html" th:formaction="@{/bmi/}">Calculate</button>
     </form>
